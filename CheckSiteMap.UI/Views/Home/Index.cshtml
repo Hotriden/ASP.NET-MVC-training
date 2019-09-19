@@ -1,0 +1,24 @@
+﻿@model CheckSiteMap.UI.Models.SiteViewModel
+
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE Html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+             @Html.ValidationSummary()
+            <p>Inpur your sitemap: @Html.TextBoxFor(x => x.Url)</p>
+            <input type="submit" value="Check sitemap" />
+        }
+    </div>
+</body>
+</html>

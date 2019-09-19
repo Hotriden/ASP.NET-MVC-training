@@ -1,0 +1,64 @@
+﻿
+@model CheckSiteMap.UI.Models.SiteViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="chartContainer" style="height: 540px; width: 100%;"></div>
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Sitemap url</th>
+            <th scope="col">Reqeust time, sec.</th>
+        </tr>
+    </thead>
+    @using (Html.BeginForm())
+    {
+        foreach (var b in Model.RequestsVM)
+        {
+            <tbody>
+                <tr>
+                    <td>@string.Join(" ", b.SitemapUrl)</td>
+                    <td>@string.Join(" ", b.TimeRequest)</td>
+                </tr>
+                <tr>
+            </tbody>
+        }
+    }
+</table>
+
+<script type="text/javascript">
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    title: {
+        text: "Request to @Model.Url",
+        fontSize: 40
+        },
+    subtitles: [{
+        fontSize: 30,
+        text: "Summary time @Model.SummaryTime"
+    }],
+    axisX: {
+        gridThickness: 0,
+        tickLength: 0,
+        lineThickness: 0,
+        labelFormatter: function () {
+            return " ";
+        }
+    },
+    data: [{
+        type: "bar",
+        indexLabel: "{y}",
+        dataPoints: @Html.Raw(ViewBag.DataPoints)
+	    }]
+    });
+    chart.render();
+}
+</script>
+
+@Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
