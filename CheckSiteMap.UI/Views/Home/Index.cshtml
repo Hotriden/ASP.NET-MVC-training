@@ -4,21 +4,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE Html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div>
-        @using (Html.BeginForm())
-        {
-             @Html.ValidationSummary()
-            <p>Inpur your sitemap: @Html.TextBoxFor(x => x.Url)</p>
-            <input type="submit" value="Check sitemap" />
-        }
+<div class="row">
+    <div class="col-sm-4">
+        <div id="card1" class="card" style="width: 18rem;">
+            <img src="~/Content/images/1.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Flexibility</h5>
+                <p class="card-text">Rate lexibility of your site right now</p>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+    <div class="col-sm-4">
+        <div id="card2" class="card" style="width: 18rem;">
+            <img src="~/Content/images/2.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Speed response</h5>
+                <p class="card-text">Check speed of responce from your sitemap to user</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="card3" class="card" style="width: 18rem;">
+            <img src="~/Content/images/3.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Econom trafic</h5>
+                <p class="card-text">Reduce cost of in and out trafic on your server</p>
+            </div>
+        </div>
+    </div>
+</div>

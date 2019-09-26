@@ -55,10 +55,8 @@
     <Compile Include="DTO\RequestDTO.cs" />
     <Compile Include="DTO\SiteDTO.cs" />
     <Compile Include="Infrastracture\ValidationException.cs" />
-    <Compile Include="Interfaces\IRequestService.cs" />
     <Compile Include="Interfaces\ISiteService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\RequestService.cs" />
     <Compile Include="Services\SiteService.cs" />
   </ItemGroup>
   <ItemGroup>

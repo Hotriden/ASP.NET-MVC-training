@@ -5,36 +5,58 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check times requst of your sitemap right here</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/Content/Site.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="main-class" style="overflow-x: hidden">
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link active">@Html.ActionLink("Main Page", "Index")</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link">@Html.ActionLink("Last Request", "LastRequest")</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link">@Html.ActionLink("Show all requests", "AllRequests")</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link">About</a>
-            </li>
-        </ul>
-        <div class="container body-content" style="background-color: #EBEBEB">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>@DateTime.Now.Year – Training ASP.NET MVC project</p>
-            </footer>
+    <!--Start of Header-->
+    <div class="header">
+        <div class="left-side">
+            <a class="nav-icon">
+                <img src="~/Content/images/logo.png" height="64" alt="logo">
+            </a>
+            <button class="btn btn-secondary">@Html.ActionLink("Main Page", "Index")</button>
+            <button class="btn btn-secondary">@Html.ActionLink("Last Request", "LastRequest")</button>
+            <button class="btn btn-secondary">@Html.ActionLink("Show all requests", "AllRequests")</button>
         </div>
+        <form method="post">
+            <input id="txt" name="Url" maxlength="60" type="text" class="form-control" placeholder="Exmpl: www.website.com/sitemap.xml">
+            <div class="right-side">
+                <button class="btn btn-secondary" type="submit">Send New Request</button>
+                <button class="btn btn-secondary" type="button">Find My Request</button>
+            </div>
+        </form>
     </div>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--End of Header-->
+    <div class="body-container">
+        @RenderBody()
+        <hr/>
+        <footer>
+        <nav id="footer">
+            <h6>Contacts us on </h6>
+            <div class="icons">
+                <img id="icon" src="~/Content/icons/twitter.png" height="32" alt="twitter">
+                <img id="icon" src="~/Content/icons/linked.png" height="32" alt="linked-in">
+                <img id="icon" src="~/Content/icons/facebook.png" height="32" alt="facebook">
+                <img id="icon" src="~/Content/icons/gmail.png" height="32" alt="gmail">
+            </div>
+        </nav>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/popper")
+    @RenderSection("scripts", required: false)
+
+    <script>
+        function resizable(el, factor) {
+            var int = Number(factor) || 7.7;
+            function resize() { el.style.width = ((el.value.length + 1) * int) + 'px' }
+            var e = 'keyup,keypress,focus,blur,change'.split(',');
+            for (var i in e) el.addEventListener(e[i], resize, false);
+            resize();
+        }
+        resizable(document.getElementById('txt'), 9);
+    </script>
 </body>
 </html>

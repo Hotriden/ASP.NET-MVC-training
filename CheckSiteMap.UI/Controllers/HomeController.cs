@@ -12,11 +12,9 @@ namespace CheckSiteMap.UI.Controllers
     public class HomeController : Controller
     {
         private ISiteService _siteService;
-        private IRequestService _requestService;
-        public HomeController(ISiteService siteService, IRequestService requestService)
+        public HomeController(ISiteService siteService)
         {
             _siteService = siteService;
-            _requestService = requestService;
         }
 
         [HttpGet]
@@ -52,6 +50,11 @@ namespace CheckSiteMap.UI.Controllers
                 Url = tempSite.Url,
                 RequestsVM = temp
             };
+
+            var slowResult  = (from b in siteVM.RequestsVM select new { Time = b.TimeRequest, Url = b.SitemapUrl }).Where(t => t.Time == siteVM.RequestsVM.Max(y => y.TimeRequest)).First();
+            var fastResult = (from b in siteVM.RequestsVM select new { Time = b.TimeRequest, Url = b.SitemapUrl }).Where(t => t.Time == siteVM.RequestsVM.Min(y => y.TimeRequest)).First();
+            ViewBag.Slow = slowResult.Url + " - " + slowResult.Time;
+            ViewBag.Fast = fastResult.Url + " - " + fastResult.Time;
 
             ViewBag.DataPoints = JsonConvert.SerializeObject(siteVM.RequestsVM.OrderBy(p => p.TimeRequest));
 

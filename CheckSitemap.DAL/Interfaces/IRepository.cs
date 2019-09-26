@@ -10,7 +10,6 @@ namespace CheckSitemap.DAL.Interfaces
     {
         IEnumerable<T> GetAll();
         T Get(int indentity);
-        IEnumerable<T> GetById(int siteId);
         void Create(T item);
         void Update(T item);
         void Delete(int id);

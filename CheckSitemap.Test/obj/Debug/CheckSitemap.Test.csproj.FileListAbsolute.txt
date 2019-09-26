@@ -105,3 +105,6 @@ D:\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\ru\System.Web.Optimization
 D:\CheckSitemapApp-master\CheckSitemap.Test\obj\Debug\CheckSitemap.Test.csproj.CopyComplete
 D:\CheckSitemapApp-master\CheckSitemap.Test\obj\Debug\CheckSitemap.Test.dll
 D:\CheckSitemapApp-master\CheckSitemap.Test\obj\Debug\CheckSitemap.Test.pdb
+D:\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\FluentAssertions.dll
+D:\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\FluentAssertions.pdb
+D:\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\FluentAssertions.xml

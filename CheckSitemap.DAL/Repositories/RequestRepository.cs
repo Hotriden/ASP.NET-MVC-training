@@ -34,11 +34,6 @@ namespace CheckSitemap.DAL.Repositories
             context.Requests.Add(req);
         }
 
-        public IEnumerable<Request> GetById(int siteId)
-        {
-            return context.Requests.Where(t => t.site.Id == siteId);
-        }
-
         public void Update(Request req)
         {
             context.Entry(req).State = EntityState.Modified;

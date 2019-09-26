@@ -32,21 +32,18 @@ namespace CheckSitemap.DAL.Repositories
                 context.Sites.Remove(site);
         }
 
-
         public Site Get(int id)
         {
-            return context.Sites.Where(t => t.Id == id).Include(t => t.Requests).First();
+            var request = context.Sites.Where(t => t.Id == id).Include(t => t.Requests).First();
+            Site site = new Site() { Requests = request.Requests.OrderByDescending(t => t.TimeRequest).ToList(),
+                Id = request.Id, RequestIp = request.RequestIp, SummaryTime = request.SummaryTime, Url = request.Url };
+            return site;
         }
 
         // For get all site on one table
         public IEnumerable<Site> GetAll()
         {
             return context.Sites;
-        }
-
-        public IEnumerable<Site> GetById(int siteId)
-        {
-            return context.Sites.Where(t => t.Id == siteId).Include(p=>p.Requests).ToList();
         }
 
         public void Update(Site item)

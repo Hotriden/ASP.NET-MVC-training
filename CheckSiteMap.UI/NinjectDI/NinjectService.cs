@@ -31,7 +31,6 @@ namespace CheckSiteMap.UI.NinjectDI
         private void AddBindings()
         {
             _kernel.Bind<ISiteService>().To<SiteService>();
-            _kernel.Bind<IRequestService>().To<RequestService>();
             _kernel.Bind<IUnitOfWork>().To<EFUnitOfWork>();
         }
     }

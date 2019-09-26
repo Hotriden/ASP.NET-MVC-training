@@ -6,11 +6,15 @@ using System.Web;
 using System.Diagnostics;
 using CheckSitemap.BLL.Infrastracture;
 using CheckSitemap.DAL.Entities;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("CheckSitemap.Test")]
 namespace CheckSitemap.BLL.BusinessModels
 {
+    
     internal class GetSiteMap
     {
+
         internal List<Request> requests = new List<Request>();
 
         internal GetSiteMap(string site)
