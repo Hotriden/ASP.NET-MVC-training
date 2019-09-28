@@ -286,3 +286,7 @@ D:\CheckSitemapApp-master\CheckSiteMap.UI\obj\Debug\CheckSitemap.UI.csproj.CoreC
 D:\CheckSitemapApp-master\CheckSiteMap.UI\obj\Debug\CheckSitemap.UI.csproj.CopyComplete
 D:\CheckSitemapApp-master\CheckSiteMap.UI\obj\Debug\CheckSiteMap.UI.dll
 D:\CheckSitemapApp-master\CheckSiteMap.UI\obj\Debug\CheckSiteMap.UI.pdb
+D:\CheckSitemapApp-master\CheckSiteMap.UI\bin\PagedList.dll
+D:\CheckSitemapApp-master\CheckSiteMap.UI\bin\PagedList.Mvc.dll
+D:\CheckSitemapApp-master\CheckSiteMap.UI\bin\PagedList.xml
+D:\CheckSitemapApp-master\CheckSiteMap.UI\bin\PagedList.Mvc.xml

@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
+    <link rel="shortcut icon" href="~/Content/icons/icon-image.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check times requst of your sitemap right here</title>
     @Styles.Render("~/Content/css")
@@ -19,11 +20,14 @@
             <button class="btn btn-secondary">@Html.ActionLink("Last Request", "LastRequest")</button>
             <button class="btn btn-secondary">@Html.ActionLink("Show all requests", "AllRequests")</button>
         </div>
+        <div class="valid-errors">
+            <p>@Html.ValidationSummary()</p>
+        </div>
         <form method="post">
-            <input id="txt" name="Url" maxlength="60" type="text" class="form-control" placeholder="Exmpl: www.website.com/sitemap.xml">
+            <input id="Url" name="Url" maxlength="60" type="text" class="form-control" placeholder="Exmpl: www.website.com/sitemap.xml">
             <div class="right-side">
-                <button class="btn btn-secondary" type="submit">Send New Request</button>
-                <button class="btn btn-secondary" type="button">Find My Request</button>
+                <button class="btn btn-secondary" type="submit">Send new request</button>
+                <button class="btn btn-secondary" type="button">@Html.ActionLink("Find my requests", "UserResults")</button>
             </div>
         </form>
     </div>
@@ -34,11 +38,11 @@
         <footer>
         <nav id="footer">
             <h6>Contacts us on </h6>
-            <div class="icons">
-                <img id="icon" src="~/Content/icons/twitter.png" height="32" alt="twitter">
-                <img id="icon" src="~/Content/icons/linked.png" height="32" alt="linked-in">
-                <img id="icon" src="~/Content/icons/facebook.png" height="32" alt="facebook">
-                <img id="icon" src="~/Content/icons/gmail.png" height="32" alt="gmail">
+            <div class="icons" unselectable="on">
+                <a title="Telegram" href="https://t.me/Rifterx"><img id="icon" src="~/Content/icons/telegram.png" height="32" /></a>
+                <a title="Linkedin" href="https://www.linkedin.com/"><img id="icon" src="~/Content/icons/linked.png" height="32" /></a>
+                <a title="Facebook" href="https://www.facebook.com/"><img id="icon" src="~/Content/icons/facebook.png" height="32" /></a>
+                <a title="twitter" href="https://twitter.com/"><img id="icon" src="~/Content/icons/twitter.png" height="32" /></a>
             </div>
         </nav>
         </footer>
@@ -56,7 +60,7 @@
             for (var i in e) el.addEventListener(e[i], resize, false);
             resize();
         }
-        resizable(document.getElementById('txt'), 9);
+        resizable(document.getElementById('Url'), 9);
     </script>
 </body>
 </html>

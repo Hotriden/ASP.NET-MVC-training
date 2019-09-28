@@ -23,8 +23,6 @@ namespace CheckSitemap.BLL.Services
         }
         public void CreateSite(string inputUrl)
         {
-            if (inputUrl == null)
-                throw new ValidationException("Site does not exist","");
             List<Request> requestList = new GetSiteMap(inputUrl).requests;
             Site site = new Site
             {

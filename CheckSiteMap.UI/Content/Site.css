@@ -74,3 +74,27 @@ body {
     right: 0;
     margin: 10px;
 }
+
+.valid-errors {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    margin-right: 800px;
+    color: red;
+}
+
+.icons{
+    cursor: pointer;
+    display: inline-block;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    outline: none;
+    border: none;
+
+}

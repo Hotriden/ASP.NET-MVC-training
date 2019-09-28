@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 using CheckSitemap.BLL.DTO;
 using CheckSitemap.BLL.Interfaces;
 using CheckSiteMap.UI.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace CheckSiteMap.UI.Controllers
 {
@@ -26,48 +28,97 @@ namespace CheckSiteMap.UI.Controllers
         [HttpPost]
         public ActionResult Index(SiteViewModel site)
         {
-            _siteService.CreateSite(site.Url);
-            return RedirectToAction("CheckRequest", new { id = _siteService.GetCount()});
+            if (ModelState.IsValid)
+            {
+                _siteService.CreateSite(site.Url);
+                return RedirectToAction("CheckRequest", new { id = _siteService.GetCount() });
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpGet]
         public ActionResult LastRequest()
         {
-            return RedirectToAction("CheckRequest", new { id = _siteService.GetCount()});
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("CheckRequest", new { id = _siteService.GetCount() });
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpGet]
         public ViewResult CheckRequest(int id)
         {
-            SiteDTO tempSite = _siteService.GetSite(id);
-            var mapperVM = new MapperConfiguration(cfg => cfg.CreateMap<RequestDTO, RequestViewModel>()).CreateMapper();
-            var temp = mapperVM.Map<List<RequestDTO>, List<RequestViewModel>>(tempSite.RequestsDTO);
-            SiteViewModel siteVM = new SiteViewModel
+            if (ModelState.IsValid)
             {
-                Id = tempSite.Id,
-                RequestIp = tempSite.RequestIp,
-                SummaryTime = tempSite.SummaryTime,
-                Url = tempSite.Url,
-                RequestsVM = temp
-            };
+                SiteDTO tempSite = _siteService.GetSite(id);
+                var mapperVM = new MapperConfiguration(cfg => cfg.CreateMap<RequestDTO, RequestViewModel>()).CreateMapper();
+                var temp = mapperVM.Map<List<RequestDTO>, List<RequestViewModel>>(tempSite.RequestsDTO);
+                SiteViewModel siteVM = new SiteViewModel
+                {
+                    Id = tempSite.Id,
+                    RequestIp = tempSite.RequestIp,
+                    SummaryTime = tempSite.SummaryTime,
+                    Url = tempSite.Url,
+                    RequestsVM = temp
+                };
 
-            var slowResult  = (from b in siteVM.RequestsVM select new { Time = b.TimeRequest, Url = b.SitemapUrl }).Where(t => t.Time == siteVM.RequestsVM.Max(y => y.TimeRequest)).First();
-            var fastResult = (from b in siteVM.RequestsVM select new { Time = b.TimeRequest, Url = b.SitemapUrl }).Where(t => t.Time == siteVM.RequestsVM.Min(y => y.TimeRequest)).First();
-            ViewBag.Slow = slowResult.Url + " - " + slowResult.Time;
-            ViewBag.Fast = fastResult.Url + " - " + fastResult.Time;
+                var slowResult = (from b in siteVM.RequestsVM select new { Time = b.TimeRequest, Url = b.SitemapUrl }).Where(t => t.Time == siteVM.RequestsVM.Max(y => y.TimeRequest)).First();
+                var fastResult = (from b in siteVM.RequestsVM select new { Time = b.TimeRequest, Url = b.SitemapUrl }).Where(t => t.Time == siteVM.RequestsVM.Min(y => y.TimeRequest)).First();
+                ViewBag.Slow = slowResult.Url + " - " + slowResult.Time;
+                ViewBag.Fast = fastResult.Url + " - " + fastResult.Time;
 
-            ViewBag.DataPoints = JsonConvert.SerializeObject(siteVM.RequestsVM.OrderBy(p => p.TimeRequest));
+                ViewBag.DataPoints = JsonConvert.SerializeObject(siteVM.RequestsVM.OrderBy(p => p.TimeRequest));
 
-            return View(siteVM);
+                return View(siteVM);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpGet]
-        public ViewResult AllRequests()
+        public ViewResult AllRequests(int? page)
         {
-            IEnumerable<SiteDTO> sites = _siteService.GetSites();
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<SiteDTO, SiteViewModel>()).CreateMapper();
-            var temp = mapper.Map<IEnumerable<SiteDTO>, IEnumerable<SiteViewModel>>(sites);
-            return View(temp);
+            if (ModelState.IsValid)
+            {
+                int size = 20;
+                int pageNumber = (page ?? 1);
+                IEnumerable<SiteDTO> sites = _siteService.GetSites();
+                var mapper = new MapperConfiguration(cfg => cfg.CreateMap<SiteDTO, SiteViewModel>()).CreateMapper();
+                var temp = mapper.Map<IEnumerable<SiteDTO>, IEnumerable<SiteViewModel>>(sites);
+                return View(temp.ToPagedList(pageNumber, size));
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public ViewResult UserResults(int? page)
+        {
+            if (ModelState.IsValid)
+            {
+                int size = 20;
+                int pageNumber = (page ?? 1);
+                var sites = _siteService.GetSites();
+                IEnumerable<SiteDTO> userSites = sites.Where(t => t.RequestIp == Request.UserHostAddress).ToList();
+                var mapper = new MapperConfiguration(cfg => cfg.CreateMap<SiteDTO, SiteViewModel>()).CreateMapper();
+                var temp = mapper.Map<IEnumerable<SiteDTO>, IEnumerable<SiteViewModel>>(userSites);
+                return View(temp.ToPagedList(pageNumber, size));
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
