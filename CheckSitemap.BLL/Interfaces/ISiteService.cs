@@ -13,5 +13,6 @@ namespace CheckSitemap.BLL.Interfaces
         SiteDTO GetSite(int id);
         IEnumerable<SiteDTO> GetSites();
         int GetCount();
+        void DeleteSite(int id);
     }
 }

@@ -26,11 +26,11 @@ namespace CheckSiteMap.UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(SiteViewModel site)
+        public ActionResult Index(SiteViewModel siteViewModel)
         {
             if (ModelState.IsValid)
             {
-                _siteService.CreateSite(site.Url);
+                _siteService.CreateSite(siteViewModel.Url);
                 return RedirectToAction("CheckRequest", new { id = _siteService.GetCount() });
             }
             else
@@ -42,14 +42,7 @@ namespace CheckSiteMap.UI.Controllers
         [HttpGet]
         public ActionResult LastRequest()
         {
-            if (ModelState.IsValid)
-            {
-                return RedirectToAction("CheckRequest", new { id = _siteService.GetCount() });
-            }
-            else
-            {
-                return View();
-            }
+            return RedirectToAction("CheckRequest", new { id = _siteService.GetCount() });
         }
 
         [HttpGet]
@@ -73,7 +66,6 @@ namespace CheckSiteMap.UI.Controllers
                 var fastResult = (from b in siteVM.RequestsVM select new { Time = b.TimeRequest, Url = b.SitemapUrl }).Where(t => t.Time == siteVM.RequestsVM.Min(y => y.TimeRequest)).First();
                 ViewBag.Slow = slowResult.Url + " - " + slowResult.Time;
                 ViewBag.Fast = fastResult.Url + " - " + fastResult.Time;
-
                 ViewBag.DataPoints = JsonConvert.SerializeObject(siteVM.RequestsVM.OrderBy(p => p.TimeRequest));
 
                 return View(siteVM);
@@ -94,7 +86,8 @@ namespace CheckSiteMap.UI.Controllers
                 IEnumerable<SiteDTO> sites = _siteService.GetSites();
                 var mapper = new MapperConfiguration(cfg => cfg.CreateMap<SiteDTO, SiteViewModel>()).CreateMapper();
                 var temp = mapper.Map<IEnumerable<SiteDTO>, IEnumerable<SiteViewModel>>(sites);
-                return View(temp.ToPagedList(pageNumber, size));
+                ViewBag.PaggedList = temp.ToPagedList(pageNumber, size);
+                return View();
             }
             else
             {
@@ -113,12 +106,19 @@ namespace CheckSiteMap.UI.Controllers
                 IEnumerable<SiteDTO> userSites = sites.Where(t => t.RequestIp == Request.UserHostAddress).ToList();
                 var mapper = new MapperConfiguration(cfg => cfg.CreateMap<SiteDTO, SiteViewModel>()).CreateMapper();
                 var temp = mapper.Map<IEnumerable<SiteDTO>, IEnumerable<SiteViewModel>>(userSites);
-                return View(temp.ToPagedList(pageNumber, size));
+                ViewBag.PaggedList = temp.ToPagedList(pageNumber, size);
+                return View();
             }
             else
             {
                 return View();
             }
+        }
+
+        public ActionResult DeleteRequest(SiteViewModel siteViewModel)
+        {
+            _siteService.DeleteSite(siteViewModel.Id);
+            return RedirectToAction("UserResults");
         }
     }
 }

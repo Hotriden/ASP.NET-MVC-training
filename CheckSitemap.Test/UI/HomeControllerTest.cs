@@ -20,9 +20,8 @@ namespace CheckSitemap.Test.UI
         {
             int findId = 1;
             var mockSiteService = new Mock<ISiteService>();
-            var mockRequestService = new Mock<IRequestService>();
             mockSiteService.Setup(a => a.GetSite(findId)).Returns(new SiteDTO());
-            HomeController controller = new HomeController(mockSiteService.Object, mockRequestService.Object);
+            HomeController controller = new HomeController(mockSiteService.Object);
 
             ViewResult result = controller.CheckRequest(findId) as ViewResult;
 
@@ -33,8 +32,7 @@ namespace CheckSitemap.Test.UI
         public void Index_simple_test()
         {
             var mockSiteService = new Mock<ISiteService>();
-            var mockRequestService = new Mock<IRequestService>();
-            HomeController controller = new HomeController(mockSiteService.Object, mockRequestService.Object);
+            HomeController controller = new HomeController(mockSiteService.Object);
             ViewResult result = controller.Index() as ViewResult;
 
             Assert.IsNotNull(result);
@@ -57,8 +55,7 @@ namespace CheckSitemap.Test.UI
         public void Controllers_test_routes_to_checkrequest()
         {
             var mockSiteService = new Mock<ISiteService>();
-            var mockRequestService = new Mock<IRequestService>();
-            HomeController controller = new HomeController(mockSiteService.Object, mockRequestService.Object);
+            HomeController controller = new HomeController(mockSiteService.Object);
             ActionResult result = controller.LastRequest();
             Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
             RedirectToRouteResult routeResult = result as RedirectToRouteResult;
@@ -69,8 +66,7 @@ namespace CheckSitemap.Test.UI
         public void Controllers_test_routes_to_checkrequest_second()
         {
             var mockSiteService = new Mock<ISiteService>();
-            var mockRequestService = new Mock<IRequestService>();
-            HomeController controller = new HomeController(mockSiteService.Object, mockRequestService.Object);
+            HomeController controller = new HomeController(mockSiteService.Object);
             SiteViewModel site = new SiteViewModel();
             ActionResult result = controller.Index(site);
             Assert.IsInstanceOfType(result, typeof(ActionResult));

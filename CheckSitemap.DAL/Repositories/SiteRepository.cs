@@ -29,7 +29,13 @@ namespace CheckSitemap.DAL.Repositories
         {
             Site site = context.Sites.Find(id);
             if (site != null)
+            {
+                foreach(var b in site.Requests)
+                {
+                    context.Requests.Remove(b);
+                }
                 context.Sites.Remove(site);
+            }
         }
 
         public Site Get(int id)

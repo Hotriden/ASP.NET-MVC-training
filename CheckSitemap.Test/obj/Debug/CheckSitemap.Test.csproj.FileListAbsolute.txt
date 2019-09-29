@@ -108,3 +108,5 @@ D:\CheckSitemapApp-master\CheckSitemap.Test\obj\Debug\CheckSitemap.Test.pdb
 D:\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\FluentAssertions.dll
 D:\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\FluentAssertions.pdb
 D:\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\FluentAssertions.xml
+D:\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\PagedList.dll
+D:\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\PagedList.xml

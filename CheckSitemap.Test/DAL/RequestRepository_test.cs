@@ -18,12 +18,10 @@ namespace CheckSitemap.Test.DAL
         [TestMethod]
         public void GetAll_test()
         {
-            var mockRequest = new Mock<IRequestService>();
             var mockSite = new Mock<ISiteService>();
-            mockRequest.Setup(t => t.GetRequests(site)).Returns(new List<RequestDTO>());
             mockSite.Setup(t => t.GetSites()).Returns(new List<SiteDTO>());
 
-            HomeController controller = new HomeController(mockSite.Object, mockRequest.Object);
+            HomeController controller = new HomeController(mockSite.Object);
 
             Assert.IsNotNull(controller.ModelState);
         }

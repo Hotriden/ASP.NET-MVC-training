@@ -1,5 +1,6 @@
-﻿@model PagedList.IPagedList<CheckSiteMap.UI.Models.SiteViewModel>
+﻿@model CheckSiteMap.UI.Models.SiteViewModel
 
+@using PagedList;
 @using PagedList.Mvc;
 
 @{
@@ -15,11 +16,12 @@
             <th scope="col">User Ip</th>
             <th scope="col">Summary Time, sec</th>
             <th scope="col">Check</th>
+            <td scope="col">Delete</td>
         </tr>
     </thead>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("DeleteRequest", "Home", FormMethod.Post))
     {
-        foreach (var site in Model)
+        foreach (var site in ViewBag.PaggedList)
         {
             <tbody>
                 <tr>
@@ -27,13 +29,13 @@
                     <td>@string.Join(" ", site.RequestIp)</td>
                     <td>@string.Join(" ", site.SummaryTime)</td>
                     <td><a href="/Home/CheckRequest/@site.Id">Check</a></td>
+                    <td><a href="/Home/DeleteRequest/@site.Id">Delete</a></td>
                 </tr>
-                <tr>
             </tbody>
         }
     }
 </table>
 <br />
-Page @(Model.PageCount < Model.PageCount ? 0 : Model.PageNumber) of @Model.PageCount
+Page @(ViewBag.PaggedList.PageCount < ViewBag.PaggedList.PageNumber ? 0 : ViewBag.PaggedList.PageNumber) of @ViewBag.PaggedList.PageCount
 
-@Html.PagedListPager(Model, page => Url.Action("UserResults", new { page }))
+@Html.PagedListPager((IPagedList)ViewBag.PaggedList, page => Url.Action("AllRequests", new { page }))

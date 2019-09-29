@@ -60,9 +60,13 @@ namespace CheckSitemap.BLL.Services
 
         public int GetCount()
         {
-            int b = 0;
-            b=DataBase.Sites.GetAll().Count();
-            return b;
+            return DataBase.Sites.GetAll().Count();
+        }
+
+        public void DeleteSite(int id)
+        {
+            DataBase.Sites.Delete(id);
+            DataBase.Save();
         }
     }
 }

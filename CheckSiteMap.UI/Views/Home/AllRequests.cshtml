@@ -1,5 +1,6 @@
-﻿@model PagedList.IPagedList<CheckSiteMap.UI.Models.SiteViewModel>
+﻿@model CheckSiteMap.UI.Models.SiteViewModel
 
+@using PagedList;
 @using PagedList.Mvc;
 
 @{
@@ -18,7 +19,7 @@
     </thead>
     @using (Html.BeginForm())
     {
-        foreach (var site in Model)
+        foreach (var site in ViewBag.PaggedList)
         {
             <tbody>
                 <tr>
@@ -33,6 +34,6 @@
     }
 </table>
 <br />
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+Page @(ViewBag.PaggedList.PageCount < ViewBag.PaggedList.PageNumber ? 0 : ViewBag.PaggedList.PageNumber) of @ViewBag.PaggedList.PageCount
 
-@Html.PagedListPager(Model, page => Url.Action("AllRequests", new { page }))
+@Html.PagedListPager((IPagedList)ViewBag.PaggedList, page => Url.Action("AllRequests", new { page }))
