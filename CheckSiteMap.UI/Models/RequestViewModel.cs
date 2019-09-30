@@ -12,5 +12,7 @@ namespace CheckSiteMap.UI.Models
 
         [DataMember(Name = "y")]
         public double TimeRequest { get; set; }
+
+
     }
 }

@@ -29,20 +29,14 @@ namespace CheckSitemap.DAL.Repositories
         {
             Site site = context.Sites.Find(id);
             if (site != null)
-            {
-                foreach(var b in site.Requests)
-                {
-                    context.Requests.Remove(b);
-                }
                 context.Sites.Remove(site);
-            }
         }
 
         public Site Get(int id)
         {
             var request = context.Sites.Where(t => t.Id == id).Include(t => t.Requests).First();
             Site site = new Site() { Requests = request.Requests.OrderByDescending(t => t.TimeRequest).ToList(),
-                Id = request.Id, RequestIp = request.RequestIp, SummaryTime = request.SummaryTime, Url = request.Url };
+                Id = request.Id, RequestIp = request.RequestIp, SummaryTime = request.SummaryTime, Url = request.Url, CreateTime=request.CreateTime };
             return site;
         }
 

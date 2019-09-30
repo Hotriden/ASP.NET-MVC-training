@@ -29,7 +29,8 @@ namespace CheckSitemap.BLL.Services
                 RequestIp = HttpContext.Current.Request.UserHostAddress,
                 Url = inputUrl,
                 Requests = requestList,
-                SummaryTime = new TimeCounter(requestList).time
+                SummaryTime = new TimeCounter(requestList).time,
+                CreateTime = DateTime.Now
             };
             DataBase.Sites.Create(site);
             DataBase.Save();

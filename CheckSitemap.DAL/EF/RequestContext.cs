@@ -22,5 +22,10 @@ namespace CheckSitemap.DAL.EF
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CheckSitemapAppDb;Trusted_Connection=True;");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Site>().HasMany(t => t.Requests).WithOne(x => x.site).HasForeignKey(s => s.CurrentSiteId).OnDelete(DeleteBehavior.Cascade);
+        }
     }
 }

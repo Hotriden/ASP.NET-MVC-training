@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CheckSitemap.BLL.DTO
 {
@@ -20,6 +17,7 @@ namespace CheckSitemap.BLL.DTO
         public string RequestIp { get; set; }
 
         public double SummaryTime { get; set; }
+        public DateTime CreateTime { get; set; }
 
         public List<RequestDTO> RequestsDTO { get; set; }
     }

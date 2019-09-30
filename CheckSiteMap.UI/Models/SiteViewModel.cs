@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CheckSiteMap.UI.Models
@@ -17,6 +18,7 @@ namespace CheckSiteMap.UI.Models
         public string RequestIp { get; set; }
 
         public double SummaryTime { get; set; }
+        public DateTime CreateTime { get; set; }
 
         public List<RequestViewModel> RequestsVM { get; set; }
     }

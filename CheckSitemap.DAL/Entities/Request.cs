@@ -16,5 +16,6 @@ namespace CheckSitemap.DAL.Entities
         public double TimeRequest { get; set; }
 
         public Site site { get; set; }
+        public int CurrentSiteId {get; set;}
     }
 }
