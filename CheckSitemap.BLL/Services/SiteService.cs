@@ -4,8 +4,6 @@ using CheckSitemap.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
 using CheckSitemap.BLL.Infrastracture;
 using System.Web;
@@ -61,7 +59,7 @@ namespace CheckSitemap.BLL.Services
 
         public int GetCount()
         {
-            return DataBase.Sites.GetAll().Count();
+            return DataBase.Sites.GetAll().Last().Id;
         }
 
         public void DeleteSite(int id)
