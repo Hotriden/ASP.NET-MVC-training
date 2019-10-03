@@ -20,6 +20,8 @@ namespace CheckSitemap.DAL.Entities
 
         public double SummaryTime { get; set; }
 
+        public int SiteAmount { get; set; }
+
         public DateTime CreateTime { get; set; }
 
         public List<Request> Requests { get; set; }

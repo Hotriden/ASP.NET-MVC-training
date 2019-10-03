@@ -4,8 +4,6 @@ using CheckSitemap.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
 using CheckSitemap.BLL.Infrastracture;
 using System.Web;
@@ -30,7 +28,8 @@ namespace CheckSitemap.BLL.Services
                 Url = inputUrl,
                 Requests = requestList,
                 SummaryTime = new TimeCounter(requestList).time,
-                CreateTime = DateTime.Now
+                CreateTime = DateTime.Now,
+                SiteAmount = requestList.Count()
             };
             DataBase.Sites.Create(site);
             DataBase.Save();
@@ -61,7 +60,7 @@ namespace CheckSitemap.BLL.Services
 
         public int GetCount()
         {
-            return DataBase.Sites.GetAll().Count();
+            return DataBase.Sites.GetAll().First().Id;
         }
 
         public void DeleteSite(int id)

@@ -1,27 +1,37 @@
 ﻿@model CheckSiteMap.UI.Models.SiteViewModel
 
+@using PagedList;
+@using PagedList.Mvc;
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="chartContainer" style="height: 540px; width: 100%;"></div>
-<p>Slowest Url - @ViewBag.Slow</p>
-<p>Fastes Url - @ViewBag.Fast</p>
 
-<table class="table table-dark">
+<div class="MinMax">
+    <p class="btn btn-danger">Slowest Url - @ViewBag.Slow</p>
+    <p class="btn btn-success">Fastes Url - @ViewBag.Fast</p>
+</div>
+
+@{ int rowNumber = 0;}
+
+<table class="custom-table">
     <thead>
-        <tr>
-            <th scope="col">Sitemap url</th>
-            <th scope="col">Request time, sec.</th>
+        <tr class="header">
+            <td scope="col">#</td>
+            <td scope="col">Sitemap url</td>
+            <td scope="col">Request time, sec.</td>
         </tr>
     </thead>
     @using (Html.BeginForm())
     {
-        foreach (var b in Model.RequestsVM)
+        foreach (var b in ViewBag.PaggedList)
         {
             <tbody>
                 <tr>
-                    <td>@string.Join(" ", b.SitemapUrl)</td>
+                    <td>@((ViewBag.PaggedList.PageNumber - 1) * 20 + (++rowNumber))</td>
+                    <td class="Url-row">@string.Join(" ", b.SitemapUrl)</td>
                     <td>@string.Join(" ", b.TimeRequest)</td>
                 </tr>
                 <tr>
@@ -30,8 +40,12 @@
     }
 </table>
 
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<script type="text/javascript">
+    Page @(ViewBag.PaggedList.PageCount < ViewBag.PaggedList.PageNumber ? 0 : ViewBag.PaggedList.PageNumber) of @ViewBag.PaggedList.PageCount
+
+    @Html.PagedListPager((IPagedList)ViewBag.PaggedList, page => Url.Action("CheckRequest", new { page }))
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script type="text/javascript">
 window.onload = function () {
 
 var chart = new CanvasJS.Chart("chartContainer", {
@@ -60,4 +74,4 @@ var chart = new CanvasJS.Chart("chartContainer", {
     });
     chart.render();
 }
-</script>
+    </script>

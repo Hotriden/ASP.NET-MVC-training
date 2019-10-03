@@ -1,0 +1,29 @@
+﻿.btn{
+    font-weight: bold;
+}
+
+.custom-table {
+    width: 60%;
+    position: center;
+    background-color: #eeeeee;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px 0; /* 10px top & bottom padding, 0px left & right */
+    border: 1px solid black;
+}
+
+td {
+    border-top: 1px #000 solid;
+}
+
+.Url-row{
+    text-align: left;
+    text-indent: 15px;
+}
+
+.header {
+    font-weight: bold;
+    color: white;
+}
