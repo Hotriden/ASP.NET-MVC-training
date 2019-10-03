@@ -46,13 +46,19 @@ namespace CheckSiteMap.UI.Controllers
         }
 
         [HttpGet]
-        public ViewResult CheckRequest(int id)
+        public ViewResult CheckRequest(int? page, int id)
         {
             if (ModelState.IsValid)
             {
+                int size = 20;
+                int pageNumber = (page ?? 1);
+
                 SiteDTO tempSite = _siteService.GetSite(id);
-                var mapperVM = new MapperConfiguration(cfg => cfg.CreateMap<RequestDTO, RequestViewModel>()).CreateMapper();
-                var temp = mapperVM.Map<List<RequestDTO>, List<RequestViewModel>>(tempSite.RequestsDTO);
+                var mapperPaged = new MapperConfiguration(cfg => cfg.CreateMap<RequestDTO, RequestViewModel>()).CreateMapper();
+                var temp = mapperPaged.Map<List<RequestDTO>, List<RequestViewModel>>(tempSite.RequestsDTO);
+                foreach(var b in temp)
+                ViewBag.PaggedList = temp.ToPagedList(pageNumber, size);
+
                 SiteViewModel siteVM = new SiteViewModel
                 {
                     Id = tempSite.Id,
@@ -107,7 +113,8 @@ namespace CheckSiteMap.UI.Controllers
                 var mapper = new MapperConfiguration(cfg => cfg.CreateMap<SiteDTO, SiteViewModel>()).CreateMapper();
                 var temp = mapper.Map<IEnumerable<SiteDTO>, IEnumerable<SiteViewModel>>(userSites);
                 ViewBag.PaggedList = temp.ToPagedList(pageNumber, size);
-                return View();
+
+                return View(temp.First());
             }
             else
             {

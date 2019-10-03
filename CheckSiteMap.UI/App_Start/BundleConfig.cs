@@ -11,7 +11,7 @@ namespace CheckSiteMap.UI
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include("~/Scripts/modernizr-*"));
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"));
             //bundles.Add(new ScriptBundle("~/bundles/popper.js").Include("~/Scripts/popper.js"));
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css", "~/Content/Site.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css", "~/Content/Site.css", "~/Content/RequestTableStyle.css"));
         }
     }
 }

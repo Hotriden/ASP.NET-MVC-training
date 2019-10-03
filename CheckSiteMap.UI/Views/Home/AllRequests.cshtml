@@ -28,9 +28,8 @@
                     <td>@string.Join(" ", site.RequestIp)</td>
                     <td>@string.Join(" ", site.SummaryTime)</td>
                     <td>@string.Join(" ", site.CreateTime)</td>
-                    <td><a href="/Home/CheckRequest/@site.Id">Check</a></td>
+                    <td><a type="button" class="btn btn-info" href="/Home/CheckRequest/@site.Id">Check</a></td>
                 </tr>
-                <tr>
             </tbody>
         }
     }

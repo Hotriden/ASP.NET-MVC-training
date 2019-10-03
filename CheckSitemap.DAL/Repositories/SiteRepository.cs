@@ -43,7 +43,7 @@ namespace CheckSitemap.DAL.Repositories
         // For get all site on one table
         public IEnumerable<Site> GetAll()
         {
-            return context.Sites;
+            return context.Sites.OrderByDescending(x => x.CreateTime);
         }
 
         public void Update(Site item)

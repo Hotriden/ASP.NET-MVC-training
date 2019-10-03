@@ -28,7 +28,8 @@ namespace CheckSitemap.BLL.Services
                 Url = inputUrl,
                 Requests = requestList,
                 SummaryTime = new TimeCounter(requestList).time,
-                CreateTime = DateTime.Now
+                CreateTime = DateTime.Now,
+                SiteAmount = requestList.Count()
             };
             DataBase.Sites.Create(site);
             DataBase.Save();
@@ -59,7 +60,7 @@ namespace CheckSitemap.BLL.Services
 
         public int GetCount()
         {
-            return DataBase.Sites.GetAll().Last().Id;
+            return DataBase.Sites.GetAll().First().Id;
         }
 
         public void DeleteSite(int id)

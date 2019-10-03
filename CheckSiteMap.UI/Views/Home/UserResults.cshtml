@@ -8,13 +8,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>All my requests</h2>
+<h1>All requests from IP @Model.RequestIp</h1>
 <table class="table table-dark">
     <thead>
         <tr>
             <th scope="col">Url</th>
             <th scope="col">User Ip</th>
             <th scope="col">Summary Time, sec</th>
+            <th scope="col">Page amount</th>
             <th scope="col">Date</th>
             <th scope="col">Check</th>
             <td scope="col">Delete</td>
@@ -29,9 +30,10 @@
                     <td>@string.Join(" ", site.Url)</td>
                     <td>@string.Join(" ", site.RequestIp)</td>
                     <td>@string.Join(" ", site.SummaryTime)</td>
+                    <td>@string.Join(" ", site.SiteAmount)</td>
                     <td>@string.Join(" ", site.CreateTime)</td>
-                    <td><a href="/Home/CheckRequest/@site.Id">Check</a></td>
-                    <td><a href="/Home/DeleteRequest/@site.Id">Delete</a></td>
+                    <td><a type="button" class="btn btn-info" href="/Home/CheckRequest/@site.Id">Check</a></td>
+                    <td><a type="button" class="btn btn-danger" href="/Home/DeleteRequest/@site.Id">Delete</a></td>
                 </tr>
             </tbody>
         }
