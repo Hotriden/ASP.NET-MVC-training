@@ -61,7 +61,7 @@ namespace CheckSitemap.BLL.BusinessModels
 
                         double wastertime = Math.Truncate(timeTaken.TotalSeconds * 100) / 100;
                         _request.SitemapUrl = finalResult;
-                        _request.TimeRequest = wastertime;
+                        _request.TimeRequest = Math.Round(wastertime, 3);
 
                         requests.Add(_request);
                     }

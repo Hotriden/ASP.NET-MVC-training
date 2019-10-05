@@ -32,8 +32,39 @@ body {
     margin: 10px;
 }
 
-.btn {
+.header button {
+    background-color: #eeeeee;
     margin: 3px;
+}
+
+th{
+    text-align:center;
+}
+
+td{
+    vertical-align: central;
+}
+
+.header-button {
+    color: rgb(52, 58, 64);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#header-button {
+    color: rgb(52, 58, 64);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.header-button:hover {
+    text-decoration: none;
+    color: rgb(52, 58, 64);
+}
+
+#header-button:hover {
+    text-decoration: none;
+    color: rgb(52, 58, 64);
 }
 
 .form-control {
@@ -96,5 +127,4 @@ body {
     -webkit-font-smoothing: antialiased;
     outline: none;
     border: none;
-
 }

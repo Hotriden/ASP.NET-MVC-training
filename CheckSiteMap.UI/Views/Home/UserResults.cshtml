@@ -18,7 +18,7 @@
             <th scope="col">Page amount</th>
             <th scope="col">Date</th>
             <th scope="col">Check</th>
-            <td scope="col">Delete</td>
+            <th scope="col">Delete</th>
         </tr>
     </thead>
     @using (Html.BeginForm("DeleteRequest", "Home", FormMethod.Post))
@@ -40,6 +40,5 @@
     }
 </table>
 <br />
-Page @(ViewBag.PaggedList.PageCount < ViewBag.PaggedList.PageNumber ? 0 : ViewBag.PaggedList.PageNumber) of @ViewBag.PaggedList.PageCount
 
-@Html.PagedListPager((IPagedList)ViewBag.PaggedList, page => Url.Action("AllRequests", new { page }))
+@Html.PagedListPager((IPagedList)ViewBag.PaggedList, page => Url.Action("CheckRequest", new { page }))

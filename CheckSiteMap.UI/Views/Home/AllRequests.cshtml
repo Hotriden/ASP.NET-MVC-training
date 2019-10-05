@@ -35,6 +35,4 @@
     }
 </table>
 <br />
-Page @(ViewBag.PaggedList.PageCount < ViewBag.PaggedList.PageNumber ? 0 : ViewBag.PaggedList.PageNumber) of @ViewBag.PaggedList.PageCount
-
-@Html.PagedListPager((IPagedList)ViewBag.PaggedList, page => Url.Action("AllRequests", new { page }))
+@Html.PagedListPager((IPagedList)ViewBag.PaggedList, page => Url.Action("CheckRequest", new { page }))
