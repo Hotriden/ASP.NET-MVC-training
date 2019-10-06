@@ -7,12 +7,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section AddToHead{
-    @Styles.Render("~/Content/Table.css")}
+    @Styles.Render("~/Content/Table.css")
+    <title>CheckSitemapApp - Request result</title>
+}
 <div id="chartContainer" style="height: 540px; width: 100%;"></div>
 
 <div class="MinMax">
-    <p id="btn-s" class="btn btn-danger">Slowest Url - @ViewBag.Slow</p>
-    <p id="btn-s" class="btn btn-success">Fastest Url - @ViewBag.Fast</p>
+    <p id="btn-s" class="btn btn-danger">Slowest request<br/> @ViewBag.Slow</p>
+    <p id="btn-s" class="btn btn-success">Fastest Url<br/> @ViewBag.Fast</p>
 </div>
 
 @{ int rowNumber = 0;}

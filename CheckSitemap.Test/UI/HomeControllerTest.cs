@@ -23,7 +23,7 @@ namespace CheckSitemap.Test.UI
             mockSiteService.Setup(a => a.GetSite(findId)).Returns(new SiteDTO());
             HomeController controller = new HomeController(mockSiteService.Object);
 
-            ViewResult result = controller.CheckRequest(findId) as ViewResult;
+            ViewResult result = controller.CheckRequest(findId, 1) as ViewResult;
 
             Assert.IsNotNull(result.Model);
         }

@@ -6,6 +6,7 @@
 }
 
 body {
+    font-family: Georgia;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -71,7 +72,7 @@ td{
     position: absolute;
     top: 0;
     right: 0;
-    margin-right: 315px;
+    margin-right: 330px;
     margin-top: 13px;
     min-width: 295px !important;
     max-width: 99.99% !important;
