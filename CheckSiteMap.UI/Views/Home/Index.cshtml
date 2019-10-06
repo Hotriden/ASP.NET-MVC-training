@@ -1,35 +1,89 @@
 ﻿@model CheckSiteMap.UI.Models.SiteViewModel
 
-@{ 
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section AddToHead{
+    @Styles.Render("~/Content/MainPageStyle.css")
+    <title>CheckSitemapApp - Main page</title>
+}
 
-<div class="row">
-    <div class="col-sm-4">
-        <div id="card1" class="card" style="width: 18rem;">
-            <img src="~/Content/images/1.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Flexibility</h5>
-                <p class="card-text">Rate lexibility of your site right now</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="message-box">
+                <h1>CheckSiteMap service</h1>
+                <br/>
+                <br/>
+                <br/>
+                <h2>Improve your website using this service right now!</h2>
             </div>
         </div>
-    </div>
-    <div class="col-sm-4">
-        <div id="card2" class="card" style="width: 18rem;">
-            <img src="~/Content/images/2.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Speed response</h5>
-                <p class="card-text">Check speed of responce from your sitemap to user</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div id="card3" class="card" style="width: 18rem;">
-            <img src="~/Content/images/3.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Econom trafic</h5>
-                <p class="card-text">Reduce cost of in and out trafic on your server</p>
+        <div class="col-sm-7">
+            <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-interval="8000">
+                        <img src="~/Content/images/Pic1.jpg" class="d-block w-100" alt="checkRequest">
+                    </div>
+                    <div class="carousel-item" data-interval="8000">
+                        <img src="~/Content/images/Pic2.jpg" class="d-block w-100" alt="chart">
+                    </div>
+                    <div class="carousel-item" data-interval="8000">
+                        <img src="~/Content/images/table.jpg" class="d-block w-100" alt="listRequests">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
             </div>
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <img src="~/Content/images/1.png" class="card-img-top" alt="flexibility">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="text-container">
+            <h1>Flexibility</h1>
+            <p>The way to create well navigates website it's to estimate and design architecture. Sitemap should be mirror of navigation map of website 
+            helping searching systems more fast and quality indexing website. Using sitemap give opportunity to get on first pages of
+            popular searching websites like google / yandex / yahoo etc.</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+        <div class="col-sm-6">
+            <div class="text-container-left">
+                <h1>Weak places</h1>
+                <p>Using this service your can find most overloaded pages on your website. This service will to fix or create most common to search website
+                    Optimazation size and response time of web pages make web site more attractive for using. Reducing page size also waste lower trafic and narrow spends of keeping web site 
+            </div>
+        </p>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <img src="~/Content/images/2.png" class="card-img-top" alt="...">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <img src="~/Content/images/3.png" class="card-img-top" alt="...">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="text-container">
+            <h1>Personal search history</h1>
+            <p>On this website your can check most popular website sitemaps what have been checked another users. You can see all your websites with
+            summary time of whole website or separated pages. Authorization is not required - this service can indentity you for your static IP adress</p>
+        </div>
+    </div>
+    </div>

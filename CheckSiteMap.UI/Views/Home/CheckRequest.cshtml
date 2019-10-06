@@ -6,12 +6,15 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@section AddToHead{
+    @Styles.Render("~/Content/Table.css")
+    <title>CheckSitemapApp - Request result</title>
+}
 <div id="chartContainer" style="height: 540px; width: 100%;"></div>
 
 <div class="MinMax">
-    <p class="btn btn-danger">Slowest Url - @ViewBag.Slow</p>
-    <p class="btn btn-success">Fastes Url - @ViewBag.Fast</p>
+    <p id="btn-s" class="btn btn-danger">Slowest request<br/> @ViewBag.Slow</p>
+    <p id="btn-s" class="btn btn-success">Fastest Url<br/> @ViewBag.Fast</p>
 </div>
 
 @{ int rowNumber = 0;}
@@ -40,9 +43,7 @@
     }
 </table>
 
-    Page @(ViewBag.PaggedList.PageCount < ViewBag.PaggedList.PageNumber ? 0 : ViewBag.PaggedList.PageNumber) of @ViewBag.PaggedList.PageCount
-
-    @Html.PagedListPager((IPagedList)ViewBag.PaggedList, page => Url.Action("CheckRequest", new { page }))
+@Html.PagedListPager((IPagedList)ViewBag.PaggedList, page => Url.Action("CheckRequest", new { page }))
 
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script type="text/javascript">
@@ -52,11 +53,15 @@ var chart = new CanvasJS.Chart("chartContainer", {
     animationEnabled: true,
     title: {
         text: "Request to @Model.Url",
-        fontSize: 40
+        fontSize: 40,
+        verticalAlign: "top",
+        horizontalAlign: "center"
         },
     subtitles: [{
         fontSize: 30,
-        text: "Summary time @Model.SummaryTime"
+        text: "Summary time @Model.SummaryTime",
+        verticalAlign: "bottom",
+        horizontalAlign: "center"
     }],
     axisX: {
         gridThickness: 0,

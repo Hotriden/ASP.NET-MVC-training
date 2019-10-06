@@ -6,6 +6,7 @@
 }
 
 body {
+    font-family: Georgia;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -32,15 +33,46 @@ body {
     margin: 10px;
 }
 
-.btn {
+.header button {
+    background-color: #eeeeee;
     margin: 3px;
+}
+
+th{
+    text-align:center;
+}
+
+td{
+    vertical-align: central;
+}
+
+.header-button {
+    color: rgb(52, 58, 64);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#header-button {
+    color: rgb(52, 58, 64);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.header-button:hover {
+    text-decoration: none;
+    color: rgb(52, 58, 64);
+}
+
+#header-button:hover {
+    text-decoration: none;
+    color: rgb(52, 58, 64);
 }
 
 .form-control {
     position: absolute;
     top: 0;
     right: 0;
-    margin-right: 315px;
+    margin-right: 330px;
     margin-top: 13px;
     min-width: 295px !important;
     max-width: 99.99% !important;
@@ -96,5 +128,4 @@ body {
     -webkit-font-smoothing: antialiased;
     outline: none;
     border: none;
-
 }

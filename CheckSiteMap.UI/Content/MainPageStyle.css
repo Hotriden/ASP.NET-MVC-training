@@ -1,0 +1,72 @@
+﻿.card {
+    border: none;
+    background-color: #eeee;
+    width: 24rem;
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    margin-top: 10px;
+}
+
+.text-container {
+    text-align: center;
+    align-content: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    margin-top: 20%;
+    margin-right: 20%;
+    font-size: 18px;
+}
+
+.text-container-left {
+    text-align: center;
+    align-content: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    margin-top: 20%;
+    margin-left: 20%;
+    font-size: 18px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after {
+    content: '>';
+    font-size: 40px;
+    color: rgb(52, 58, 64);
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 40px;
+    color: rgb(52, 58, 64);
+}
+
+#carouselExampleInterval{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.message-box {
+    text-align: center;
+    align-content: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    margin-top: 20%;
+}
+
+.message-box h1{
+    font-size: 60px;
+    font-weight: bold;
+    color: rgb(52, 58, 64);
+}
+
+.message-box img{
+    width: 10%;
+    height: 10%;
+}

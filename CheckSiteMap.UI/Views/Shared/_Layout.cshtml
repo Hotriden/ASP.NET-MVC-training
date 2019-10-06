@@ -7,9 +7,12 @@
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="~/Content/icons/icon-image.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check times requst of your sitemap right here</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @if (IsSectionDefined("AddToHead"))
+    {
+        @RenderSection("AddToHead", required: false)
+    }
 </head>
 <body>
     <!--Start of Header-->
@@ -18,9 +21,9 @@
             <a class="nav-icon">
                 <img src="~/Content/images/logo.png" height="64" alt="logo">
             </a>
-            <button class="btn btn-secondary">@Html.ActionLink("Main Page", "Index")</button>
-            <button class="btn btn-secondary">@Html.ActionLink("Last Request", "LastRequest")</button>
-            <button class="btn btn-secondary">@Html.ActionLink("Show all requests", "AllRequests")</button>
+            <button class="btn btn-secondary">@Html.ActionLink("Main Page", "Index", "Home", null, new { @class ="header-button"})</button>
+            <button class="btn btn-secondary">@Html.ActionLink("Last Request", "LastRequest", "Home", null, new { @class ="header-button"})</button>
+            <button class="btn btn-secondary">@Html.ActionLink("Show all requests", "AllRequests", "Home", null, new { @class ="header-button"})</button>
         </div>
         <form method="post" action="/Home/Index">
             <div class="valid-errors">
@@ -28,8 +31,8 @@
             </div>
             <input id="Url" name="Url" maxlength="60" type="text" class="form-control" placeholder="Exmpl: www.website.com/sitemap.xml">
             <div class="right-side">
-                <button class="btn btn-secondary" type="submit">New request</button>
-                <button class="btn btn-secondary" type="button">@Html.ActionLink("Find my requests", "UserResults")</button>
+                <button id="header-button" class="btn btn-secondary" type="submit">New request</button>
+                <button class="btn btn-secondary" type="button">@Html.ActionLink("Find my requests", "UserResults", "Home", null, new { @class ="header-button"})</button>
             </div>
         </form>
     </div>

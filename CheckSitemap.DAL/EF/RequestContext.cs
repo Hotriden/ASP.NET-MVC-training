@@ -28,6 +28,8 @@ namespace CheckSitemap.DAL.EF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Site>().HasMany(t => t.Requests).WithOne(x => x.site).HasForeignKey(s => s.CurrentSiteId).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Request>().Property(c => c.TimeRequest).HasMaxLength(7);
+            modelBuilder.Entity<Site>().Property(c => c.SummaryTime).HasMaxLength(7);
         }
     }
 }
