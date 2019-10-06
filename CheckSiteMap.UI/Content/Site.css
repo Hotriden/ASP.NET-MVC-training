@@ -129,3 +129,12 @@ td{
     outline: none;
     border: none;
 }
+
+.valid-errors {
+    margin-top: 20px;
+    right: -10%;
+    width: 300px;
+    text-align: left;
+    align-content: center;
+    vertical-align: middle;
+}
