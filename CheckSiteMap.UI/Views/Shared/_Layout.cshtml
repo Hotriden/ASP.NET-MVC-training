@@ -27,7 +27,7 @@
         </div>
         <form method="post" action="/Home/Index">
             <div class="valid-errors">
-                <p>@Html.ValidationSummary()</p>
+                <p>@Html.ValidationMessageFor(model=>model.Url)</p>
             </div>
             <input id="Url" name="Url" maxlength="60" type="text" class="form-control" placeholder="Exmpl: www.website.com/sitemap.xml">
             <div class="right-side">

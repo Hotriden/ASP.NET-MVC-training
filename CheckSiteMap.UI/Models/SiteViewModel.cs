@@ -12,6 +12,7 @@ namespace CheckSiteMap.UI.Models
         }
         public int Id { get; set; }
         [Required(ErrorMessage = "Please input sitemap url")]
+        [MinLength(11, ErrorMessage ="Sitemap too short")]
         [RegularExpression(@"\D*sitemap.xml$", ErrorMessage= "Sitemap should end with /sitemap.xml")]
         public string Url { get; set; }
 
