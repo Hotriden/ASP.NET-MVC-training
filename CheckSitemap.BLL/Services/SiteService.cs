@@ -49,10 +49,10 @@ namespace CheckSitemap.BLL.Services
         public SiteDTO GetSite(int id)
         {
             if (id == 0)
-                throw new ValidationException("Site URL didn't specified", "");
+                throw new NotFoundException("Site URL didn't specified", "");
             var site = DataBase.Sites.Get(id);
             if (site == null)
-                throw new ValidationException("This site didn't get requests", "");
+                throw new NotFoundException("This site didn't get requests", "");
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Request, RequestDTO>()).CreateMapper();
             List<RequestDTO> req = mapper.Map<List<Request>, List<RequestDTO>>(site.Requests);
             return new SiteDTO { Id = site.Id, Url = site.Url, RequestIp = site.RequestIp, SummaryTime = site.SummaryTime, RequestsDTO=req};
@@ -60,7 +60,15 @@ namespace CheckSitemap.BLL.Services
 
         public int GetCount()
         {
-            return DataBase.Sites.GetAll().First().Id;
+            try
+            {
+                int id = DataBase.Sites.GetAll().First().Id;
+                return (int)id;
+            }
+            catch (Exception)
+            {
+                throw new NotFoundException("Sites list is empty","");
+            }
         }
 
         public void DeleteSite(int id)

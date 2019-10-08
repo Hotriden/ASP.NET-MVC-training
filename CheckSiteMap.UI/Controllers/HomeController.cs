@@ -8,6 +8,9 @@ using CheckSitemap.BLL.Interfaces;
 using CheckSiteMap.UI.Models;
 using PagedList;
 using PagedList.Mvc;
+using CheckSitemap.BLL.Infrastracture;
+using System;
+using CheckSiteMap.UI.Filters;
 
 namespace CheckSiteMap.UI.Controllers
 {
@@ -40,12 +43,14 @@ namespace CheckSiteMap.UI.Controllers
         }
 
         [HttpGet]
+        [PageNotFoundException]
         public ActionResult LastRequest()
         {
             return RedirectToAction("CheckRequest", new { id = _siteService.GetCount() });
         }
 
         [HttpGet]
+        [PageNotFoundException]
         public ViewResult CheckRequest(int? page, int id)
         {
             if (ModelState.IsValid)
@@ -56,8 +61,8 @@ namespace CheckSiteMap.UI.Controllers
                 SiteDTO tempSite = _siteService.GetSite(id);
                 var mapperPaged = new MapperConfiguration(cfg => cfg.CreateMap<RequestDTO, RequestViewModel>()).CreateMapper();
                 var temp = mapperPaged.Map<List<RequestDTO>, List<RequestViewModel>>(tempSite.RequestsDTO);
-                foreach(var b in temp)
-                ViewBag.PaggedList = temp.ToPagedList(pageNumber, size);
+                foreach (var b in temp)
+                    ViewBag.PaggedList = temp.ToPagedList(pageNumber, size);
 
                 SiteViewModel siteVM = new SiteViewModel
                 {
@@ -76,13 +81,11 @@ namespace CheckSiteMap.UI.Controllers
 
                 return View(siteVM);
             }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
         [HttpGet]
+        [PageNotFoundException]
         public ViewResult AllRequests(int? page)
         {
             if (ModelState.IsValid)
@@ -102,6 +105,7 @@ namespace CheckSiteMap.UI.Controllers
         }
 
         [HttpGet]
+        [PageNotFoundException]
         public ViewResult UserResults(int? page)
         {
             if (ModelState.IsValid)
@@ -114,12 +118,12 @@ namespace CheckSiteMap.UI.Controllers
                 var temp = mapper.Map<IEnumerable<SiteDTO>, IEnumerable<SiteViewModel>>(userSites);
                 ViewBag.PaggedList = temp.ToPagedList(pageNumber, size);
 
-                return View(temp.First());
+                if (temp != null)
+                {
+                    return View(temp.First());
+                }
             }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
         public ActionResult DeleteRequest(SiteViewModel siteViewModel)

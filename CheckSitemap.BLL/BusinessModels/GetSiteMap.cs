@@ -23,9 +23,7 @@ namespace CheckSitemap.BLL.BusinessModels
             string response;
             string[] ar;
 
-            if (site == null)
-                throw new ValidationException("Input site to check", "");
-            else if (site.StartsWith("http"))
+            if (site.StartsWith("http"))
             {
                 requestString = site;
             }
@@ -54,8 +52,15 @@ namespace CheckSitemap.BLL.BusinessModels
 
                         Stopwatch timer = new Stopwatch();
                         timer.Start();
-                        HttpWebResponse responce = (HttpWebResponse)request.GetResponse();
-                        responce.Close();
+                        try
+                        {
+                            HttpWebResponse responce = (HttpWebResponse)request.GetResponse();
+                            responce.Close();
+                        }
+                        catch
+                        {
+                            continue;
+                        }
                         timer.Stop();
                         TimeSpan timeTaken = timer.Elapsed;
 
