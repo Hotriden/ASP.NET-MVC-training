@@ -146,6 +146,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filters\EmptyDataException.cs" />
+    <Compile Include="Filters\PageNotFoundException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,6 +171,7 @@
     <Content Include="Content\icons\telegram.png" />
     <Content Include="Content\icons\twitter.png" />
     <Content Include="Content\images\1.png" />
+    <Content Include="Content\images\1404.jpg" />
     <Content Include="Content\images\2.png" />
     <Content Include="Content\images\3.png" />
     <Content Include="Content\images\logo.png" />
@@ -246,6 +249,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\UserResults.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\EmptyData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

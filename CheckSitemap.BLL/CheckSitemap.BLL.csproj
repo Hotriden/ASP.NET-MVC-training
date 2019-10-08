@@ -54,6 +54,7 @@
     <Compile Include="BusinessModels\TimeCounter.cs" />
     <Compile Include="DTO\RequestDTO.cs" />
     <Compile Include="DTO\SiteDTO.cs" />
+    <Compile Include="Infrastracture\NotFoundException.cs" />
     <Compile Include="Infrastracture\ValidationException.cs" />
     <Compile Include="Interfaces\ISiteService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -10,16 +10,12 @@ namespace CheckSiteMap.UI.Controllers
     {
         public ActionResult NotFound()
         {
-            ActionResult result;
+            return View();
+        }
 
-            object model = Request.Url.PathAndQuery;
-
-            if (!Request.IsAjaxRequest())
-                result = View(model);
-            else
-                result = PartialView("NotFound", model);
-
-            return result;
+        public ActionResult EmptyData()
+        {
+            return View();
         }
     }
 }
