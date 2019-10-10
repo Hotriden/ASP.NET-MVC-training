@@ -34,7 +34,7 @@ namespace CheckSiteMap.UI.Controllers
             if (ModelState.IsValid)
             {
                 _siteService.CreateSite(siteViewModel.Url);
-                return RedirectToAction("CheckRequest", new { id = _siteService.GetCount() });
+                return RedirectToAction("CheckRequest", new { id = _siteService.GetLast() });
             }
             else
             {
@@ -46,7 +46,7 @@ namespace CheckSiteMap.UI.Controllers
         [PageNotFoundException]
         public ActionResult LastRequest()
         {
-            return RedirectToAction("CheckRequest", new { id = _siteService.GetCount() });
+            return RedirectToAction("CheckRequest", new { id = _siteService.GetLast() });
         }
 
         [HttpGet]

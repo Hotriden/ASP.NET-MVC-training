@@ -58,12 +58,11 @@ namespace CheckSitemap.BLL.Services
             return new SiteDTO { Id = site.Id, Url = site.Url, RequestIp = site.RequestIp, SummaryTime = site.SummaryTime, RequestsDTO=req};
         }
 
-        public int GetCount()
+        public int GetLast()
         {
             try
             {
-                int id = DataBase.Sites.GetAll().First().Id;
-                return (int)id;
+                return DataBase.Sites.GetAll().First().Id; 
             }
             catch (Exception)
             {

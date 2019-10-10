@@ -12,7 +12,7 @@ namespace CheckSitemap.BLL.Interfaces
         void CreateSite(string url);
         SiteDTO GetSite(int id);
         IEnumerable<SiteDTO> GetSites();
-        int GetCount();
+        int GetLast();
         void DeleteSite(int id);
     }
 }
