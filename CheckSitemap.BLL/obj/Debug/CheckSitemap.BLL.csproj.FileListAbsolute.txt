@@ -174,7 +174,6 @@ D:\21\CheckSitemapApp-master\CheckSitemap.BLL\bin\Debug\System.Runtime.CompilerS
 D:\21\CheckSitemapApp-master\CheckSitemap.BLL\bin\Debug\System.Numerics.Vectors.xml
 D:\21\CheckSitemapApp-master\CheckSitemap.BLL\bin\Debug\System.Buffers.xml
 D:\21\CheckSitemapApp-master\CheckSitemap.BLL\obj\Debug\CheckSitemap.BLL.csprojAssemblyReference.cache
-D:\21\CheckSitemapApp-master\CheckSitemap.BLL\obj\Debug\CheckSitemap.BLL.csproj.CoreCompileInputs.cache
 D:\21\CheckSitemapApp-master\CheckSitemap.BLL\obj\Debug\CheckSitemap.BLL.csproj.CopyComplete
 D:\21\CheckSitemapApp-master\CheckSitemap.BLL\obj\Debug\CheckSitemap.BLL.dll
 D:\21\CheckSitemapApp-master\CheckSitemap.BLL\obj\Debug\CheckSitemap.BLL.pdb

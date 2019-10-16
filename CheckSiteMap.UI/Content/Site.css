@@ -1,58 +1,26 @@
-﻿.body-container{
-    height:100%;
+﻿.body-container {
+    height: 100%;
     width: 75%;
-    display:table;
-    margin:auto;
+    display: table;
+    margin: auto;
+    flex-grow: 1;
+    background-color: #eeeeee;
 }
 
 body {
     font-family: Georgia;
-    display: flex;
     flex-direction: column;
     text-align: center;
     color: rgb(52, 58, 64);
+    overflow-x: hidden;
 }
 
 .header {
     background-color: rgb(52, 58, 64);
-    height: 60px;
-    position: relative;
-}
-
-.left-side {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 20px;
-}
-
-.right-side {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 10px;
-}
-
-.header button {
-    background-color: #eeeeee;
-    margin: 3px;
-}
-
-th{
-    text-align:center;
-}
-
-td{
-    vertical-align: central;
+    height: 7vh;
 }
 
 .header-button {
-    color: rgb(52, 58, 64);
-    font-weight: bold;
-    text-decoration: none;
-}
-
-#header-button {
     color: rgb(52, 58, 64);
     font-weight: bold;
     text-decoration: none;
@@ -63,25 +31,30 @@ td{
     color: rgb(52, 58, 64);
 }
 
+#header-button {
+    color: rgb(52, 58, 64);
+    font-weight: bold;
+    text-decoration: none;
+}
+
 #header-button:hover {
     text-decoration: none;
     color: rgb(52, 58, 64);
 }
 
-.form-control {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-right: 330px;
-    margin-top: 13px;
-    min-width: 303px !important;
-    max-width: 99.99% !important;
-    transition: width 0.1s;
+th {
+    text-align: center;
 }
 
-.body-container {
-    flex-grow: 1;
-    background-color: #eeeeee;
+td {
+    vertical-align: central;
+}
+
+.form-control {
+    display: initial !important;
+    min-width: 303px;
+    max-width: 403px;
+    transition: width 0.1s;
 }
 
 #footer {
@@ -107,15 +80,6 @@ td{
     margin: 10px;
 }
 
-.valid-errors {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 10px;
-    margin-right: 800px;
-    color: red;
-}
-
 .icons{
     cursor: pointer;
     display: inline-block;
@@ -130,11 +94,37 @@ td{
     border: none;
 }
 
-.valid-errors {
-    margin-top: 20px;
-    right: -10%;
-    width: 300px;
-    text-align: left;
-    align-content: center;
-    vertical-align: middle;
+.navbar{
+    height: 60px;
+    display: inline-block;
+    width: 100%;
 }
+
+#valid-field{
+    margin-top: 7px;
+    color: red;
+    vertical-align: central;
+}
+
+@media screen and (max-width:1615px) {
+    #all-requests {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    #show_all_btn, #last_request_btn, #my_req_btn {
+        display: none;
+    }
+}
+
+#left-block {
+    margin-top: -10px;
+}
+
+#right-block {
+    display: inline-block;
+    margin-top: 3px;
+    right: 0;
+}
+

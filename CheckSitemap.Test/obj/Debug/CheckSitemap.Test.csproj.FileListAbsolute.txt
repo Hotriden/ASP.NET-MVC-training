@@ -111,7 +111,6 @@ D:\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\FluentAssertions.xml
 D:\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\PagedList.dll
 D:\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\PagedList.xml
 D:\21\CheckSitemapApp-master\CheckSitemap.Test\obj\Debug\CheckSitemap.Test.csprojAssemblyReference.cache
-D:\21\CheckSitemapApp-master\CheckSitemap.Test\obj\Debug\CheckSitemap.Test.csproj.CoreCompileInputs.cache
 D:\21\CheckSitemapApp-master\CheckSitemap.Test\obj\Debug\CheckSitemap.Test.dll
 D:\21\CheckSitemapApp-master\CheckSitemap.Test\obj\Debug\CheckSitemap.Test.pdb
 D:\21\CheckSitemapApp-master\CheckSitemap.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll

@@ -92,8 +92,6 @@
     <Compile Include="BLL\GetsiteMap_tests.cs" />
     <Compile Include="BLL\SiteService_Test.cs" />
     <Compile Include="BLL\TimeCounter_tests.cs" />
-    <Compile Include="DAL\RequestRepository_test.cs" />
-    <Compile Include="DAL\SiteRepository_test.cs" />
     <Compile Include="UI\HomeControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

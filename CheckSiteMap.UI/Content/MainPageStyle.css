@@ -2,30 +2,10 @@
     border: none;
     background-color: #eeee;
     width: 24rem;
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
-    margin-bottom: 10px; /* Added */
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
     margin-top: 10px;
-}
-
-.text-container {
-    text-align: center;
-    align-content: center;
-    vertical-align: middle;
-    margin: 0 auto;
-    margin-top: 20%;
-    margin-right: 20%;
-    font-size: 18px;
-}
-
-.text-container-left {
-    text-align: center;
-    align-content: center;
-    vertical-align: middle;
-    margin: 0 auto;
-    margin-top: 20%;
-    margin-left: 20%;
-    font-size: 18px;
 }
 
 .carousel-control-prev-icon,
@@ -53,7 +33,6 @@
 }
 
 .message-box {
-    position: absolute;
     width: 100%;
     text-align: center;
     align-content: center;
@@ -63,7 +42,36 @@
 }
 
 .message-box h1{
-    font-size: 60px;
+    font-size: 3.5vw;
     font-weight: bold;
     color: rgb(52, 58, 64);
+}
+
+.message-box h2{
+    font-size: 2.5vw;
+}
+
+#card-block{
+    margin-top: 10%;
+    font-size: 1.5vw;
+    width: 70%;
+}
+
+#card-block h1{
+    font-size: 4vw;
+}
+
+.text-container {
+    text-align: center;
+    align-content: center;
+    vertical-align: top;
+    margin-top: 10%;
+    margin-right: 20%;
+}
+
+.text-container-left {
+    vertical-align: top;
+    margin-top: 10%;
+    margin-left: 20%;
+    padding: 0;
 }

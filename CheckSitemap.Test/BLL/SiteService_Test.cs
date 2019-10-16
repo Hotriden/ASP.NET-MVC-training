@@ -59,13 +59,16 @@ namespace CheckSitemap.Test.BLL
         [TestMethod]
         public void GetLast_test()
         {
+            IList<Site> sites = new List<Site>();
             Site site = new Site() { Id = 1, RequestIp = "10.0.0.4", Url = "www.google.com/sitemap.xml" };
+            sites.Add(site);
 
+            mockIUOW.Setup(x => x.Sites.GetAll()).Returns(sites);
             var result = new SiteService(mockIUOW.Object);
-            var res = result.GetSite(1);
+            var res = result.GetLast();
 
             Assert.IsNotNull(res);
-            Assert.AreEqual(res.RequestIp, "10.0.0.4");
+            Assert.AreEqual(res, 1);
         }
 
         [TestMethod]
@@ -78,6 +81,7 @@ namespace CheckSitemap.Test.BLL
 
             Site site = new Site()
             {
+                Url= "www.google.com/sitemap.xml",
                 RequestIp = "10.0.0.1",
                 Id = 1,
                 SiteAmount = 10,
@@ -85,13 +89,14 @@ namespace CheckSitemap.Test.BLL
             };
 
             var siteMock = new Mock<IRepository<Site>>();
-            //var mockSiteService = mockIUOW.Setup(x => x.Sites).Returns(siteMock.Object);
+            var mockSiteService = mockIUOW.Setup(x => x.Sites).Returns(siteMock.Object);
             mockIUOW.Setup(x => x.Sites.Create(site));
             var siteService = new SiteService(mockIUOW.Object);
             string request = "www.google.com/sitemap.xml";
             siteService.CreateSite(request);
 
-            mockIUOW.Verify(r => r.Sites.Create(site), Times.AtLeastOnce);
+            Assert.IsTrue(mockIUOW.Object.Sites != null);
+            Assert.IsTrue(siteService.GetSites() != null);
         }
     }
 }
