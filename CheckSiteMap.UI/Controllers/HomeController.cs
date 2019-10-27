@@ -7,15 +7,15 @@ using CheckSitemap.BLL.DTO;
 using CheckSitemap.BLL.Interfaces;
 using CheckSiteMap.UI.Models;
 using PagedList;
-using PagedList.Mvc;
-using CheckSitemap.BLL.Infrastracture;
-using System;
 using CheckSiteMap.UI.Filters;
 
 namespace CheckSiteMap.UI.Controllers
 {
     public class HomeController : Controller
     {
+        /// <summary>
+        /// UOW implement on constructor of homecontroller
+        /// </summary>
         private ISiteService _siteService;
         public HomeController(ISiteService siteService)
         {
@@ -34,7 +34,7 @@ namespace CheckSiteMap.UI.Controllers
             if (ModelState.IsValid)
             {
                 _siteService.CreateSite(siteViewModel.Url);
-                return RedirectToAction("CheckRequest", new { id = _siteService.GetCount() });
+                return RedirectToAction("CheckRequest", new { id = _siteService.GetLast() });
             }
             else
             {
@@ -46,7 +46,7 @@ namespace CheckSiteMap.UI.Controllers
         [PageNotFoundException]
         public ActionResult LastRequest()
         {
-            return RedirectToAction("CheckRequest", new { id = _siteService.GetCount() });
+            return RedirectToAction("CheckRequest", new { id = _siteService.GetLast() });
         }
 
         [HttpGet]

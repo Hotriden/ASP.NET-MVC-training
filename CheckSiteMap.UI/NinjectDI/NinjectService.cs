@@ -9,6 +9,10 @@ using Ninject;
 
 namespace CheckSiteMap.UI.NinjectDI
 {
+    /// <summary>
+    /// Implementation of DI Ninject
+    /// UOW should be binded as siteservice!!!
+    /// </summary>
     public class NinjectService : IDependencyResolver
     {
         private IKernel _kernel;

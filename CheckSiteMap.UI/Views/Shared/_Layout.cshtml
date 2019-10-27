@@ -16,26 +16,28 @@
 </head>
 <body>
     <!--Start of Header-->
-    <div class="header">
-        <div class="left-side">
-            <a class="nav-icon">
-                <img src="~/Content/images/logo.png" height="64" alt="logo">
-            </a>
-            <button class="btn btn-secondary">@Html.ActionLink("Main Page", "Index", "Home", null, new { @class ="header-button"})</button>
-            <button class="btn btn-secondary">@Html.ActionLink("Last Request", "LastRequest", "Home", null, new { @class ="header-button"})</button>
-            <button class="btn btn-secondary">@Html.ActionLink("Show all requests", "AllRequests", "Home", null, new { @class ="header-button"})</button>
+    <div class="navbar navbar-dark bg-dark">
+        <div class="row">
+            <div class="col-4" id="left-block">
+                <a class="nav-icon">
+                    <img src="~/Content/images/logo.png" height="64" alt="logo">
+                </a>
+                <button class="btn btn-secondary btn-responsive" id="main_page_btn">@Html.ActionLink("Main Page", "Index", "Home", null, new { @class = "header-button" })</button>
+                <button class="btn btn-secondary btn-responsive" id="last_request_btn">@Html.ActionLink("Last Request", "LastRequest", "Home", null, new { @class = "header-button" })</button>
+                <button class="btn btn-secondary btn-responsive" id="show_all_btn">@Html.ActionLink("Show all requests", "AllRequests", "Home", null, new { @class = "header-button" })</button>
+            </div>
+            <div class="col-2" id="valid-field">
+                <p>@Html.ValidationMessageFor(model => model.Url)</p>
+            </div>
+            <div class="col-6" id="right-block">
+                <form method="post" action="/Home/Index">
+                    <input id="Url" name="Url" type="text" class="form-control" placeholder="Exmpl: www.website.com/sitemap.xml">
+                    <button id="header-button" class="btn btn-secondary btn-responsive" type="submit">New request</button>
+                    <button class="btn btn-secondary btn-responsive" id="my_req_btn" type="button">@Html.ActionLink("Find my requests", "UserResults", "Home", null, new { @class = "header-button" })</button>
+                </form>
+            </div>
         </div>
-        <form method="post" action="/Home/Index">
-            <div class="valid-errors">
-                <p>@Html.ValidationMessageFor(model=>model.Url)</p>
-            </div>
-            <input id="Url" name="Url" maxlength="60" type="text" class="form-control" placeholder="Exmpl: www.website.com/sitemap.xml">
-            <div class="right-side">
-                <button id="header-button" class="btn btn-secondary" type="submit">New request</button>
-                <button class="btn btn-secondary" type="button">@Html.ActionLink("Find my requests", "UserResults", "Home", null, new { @class ="header-button"})</button>
-            </div>
-        </form>
-    </div>
+</div>
     <!--End of Header-->
     <div class="body-container">
         @RenderBody()

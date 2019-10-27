@@ -20,7 +20,16 @@ namespace CheckSitemap.Test.UI
         {
             int findId = 1;
             var mockSiteService = new Mock<ISiteService>();
-            mockSiteService.Setup(a => a.GetSite(findId)).Returns(new SiteDTO());
+
+            SiteDTO site = new SiteDTO()
+            {
+                Id = 1,
+                RequestIp = "www.google.com/sitemap.xml",
+                Url = "10.0.0.4",
+                SummaryTime = 0
+            };
+
+            mockSiteService.Setup(a => a.GetSite(findId)).Returns(site);
             HomeController controller = new HomeController(mockSiteService.Object);
 
             ViewResult result = controller.CheckRequest(findId, 1) as ViewResult;

@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CheckSitemap.DAL.Interfaces;
 using CheckSitemap.DAL.EF;
 using CheckSitemap.DAL.Entities;
 
 namespace CheckSitemap.DAL.Repositories
 {
+    /// <summary>
+    /// UOW patter with common function to make
+    /// changes on db
+    /// </summary>
     public class EFUnitOfWork:IUnitOfWork
     {
         private RequestContext context;

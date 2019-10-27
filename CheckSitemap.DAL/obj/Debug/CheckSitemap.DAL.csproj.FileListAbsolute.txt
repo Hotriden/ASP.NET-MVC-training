@@ -164,7 +164,6 @@ D:\21\CheckSitemapApp-master\CheckSitemap.DAL\bin\Debug\System.Memory.xml
 D:\21\CheckSitemapApp-master\CheckSitemap.DAL\bin\Debug\System.Numerics.Vectors.xml
 D:\21\CheckSitemapApp-master\CheckSitemap.DAL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\21\CheckSitemapApp-master\CheckSitemap.DAL\obj\Debug\CheckSitemap.DAL.csprojAssemblyReference.cache
-D:\21\CheckSitemapApp-master\CheckSitemap.DAL\obj\Debug\CheckSitemap.DAL.csproj.CoreCompileInputs.cache
 D:\21\CheckSitemapApp-master\CheckSitemap.DAL\obj\Debug\CheckSitemap.DAL.csproj.CopyComplete
 D:\21\CheckSitemapApp-master\CheckSitemap.DAL\obj\Debug\CheckSitemap.DAL.dll
 D:\21\CheckSitemapApp-master\CheckSitemap.DAL\obj\Debug\CheckSitemap.DAL.pdb

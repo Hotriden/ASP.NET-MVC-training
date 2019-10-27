@@ -434,7 +434,6 @@ D:\21\CheckSitemapApp-master\CheckSiteMap.UI\bin\ru\System.Web.WebPages.resource
 D:\21\CheckSitemapApp-master\CheckSiteMap.UI\bin\ru\System.Web.WebPages.Deployment.resources.dll
 D:\21\CheckSitemapApp-master\CheckSiteMap.UI\bin\ru\System.Web.WebPages.Razor.resources.dll
 D:\21\CheckSitemapApp-master\CheckSiteMap.UI\obj\Debug\CheckSitemap.UI.csprojAssemblyReference.cache
-D:\21\CheckSitemapApp-master\CheckSiteMap.UI\obj\Debug\CheckSitemap.UI.csproj.CoreCompileInputs.cache
 D:\21\CheckSitemapApp-master\CheckSiteMap.UI\obj\Debug\CheckSitemap.UI.csproj.CopyComplete
 D:\21\CheckSitemapApp-master\CheckSiteMap.UI\obj\Debug\CheckSiteMap.UI.dll
 D:\21\CheckSitemapApp-master\CheckSiteMap.UI\obj\Debug\CheckSiteMap.UI.pdb
