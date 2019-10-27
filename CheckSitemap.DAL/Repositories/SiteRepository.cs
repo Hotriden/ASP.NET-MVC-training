@@ -1,15 +1,17 @@
 ﻿using CheckSitemap.DAL.EF;
 using CheckSitemap.DAL.Entities;
 using CheckSitemap.DAL.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace CheckSitemap.DAL.Repositories
 {
+    /// <summary>
+    /// For now able to cover by all need
+    /// of application, could get all requests
+    /// under siterepository
+    /// </summary>
     public class SiteRepository : IRepository<Site>
     {
         private readonly RequestContext context;

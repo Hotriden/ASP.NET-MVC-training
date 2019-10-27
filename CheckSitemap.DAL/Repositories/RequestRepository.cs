@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CheckSitemap.DAL.Entities;
 using CheckSitemap.DAL.Interfaces;
 using CheckSitemap.DAL.EF;
@@ -10,6 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CheckSitemap.DAL.Repositories
 {
+    /// <summary>
+    /// DON'T USED
+    /// </summary>
     public class RequestRepository:IRepository<Request>
     {
         private RequestContext context;

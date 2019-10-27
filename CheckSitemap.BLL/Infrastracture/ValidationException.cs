@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CheckSitemap.BLL.Infrastracture
 {
+    /// <summary>
+    /// Catch valid exceptions
+    /// </summary>
     public class ValidationException:Exception
     {
         public string Property { get; protected set; }

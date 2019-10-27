@@ -12,10 +12,14 @@ using CheckSitemap.BLL.Interfaces;
 
 namespace CheckSitemap.BLL.Services
 {
+    /// <summary>
+    /// ISiteService implementation on business logic layer
+    /// with based functionality
+    /// </summary>
     public class SiteService : ISiteService
     {
-        IUnitOfWork DataBase { get; set; }
-        public SiteService(IUnitOfWork uof)
+        IUnitOfWork DataBase { get; set; } 
+        public SiteService(IUnitOfWork uof) // Constructor with initializing UOW class aimed on db
         {
             DataBase = uof;
         }

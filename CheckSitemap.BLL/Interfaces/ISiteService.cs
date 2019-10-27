@@ -1,12 +1,14 @@
 ﻿using CheckSitemap.BLL.DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CheckSitemap.BLL.Interfaces
 {
+    /// <summary>
+    /// Main functions of business logic path of application
+    /// which gona be used for interaction under UI
+    /// with data base and appliaction entities
+    /// </summary>
     public interface ISiteService:IDisposable
     {
         void CreateSite(string url);

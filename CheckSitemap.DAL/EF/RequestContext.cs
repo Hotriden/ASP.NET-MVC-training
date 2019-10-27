@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CheckSitemap.DAL.Entities;
+﻿using CheckSitemap.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CheckSitemap.DAL.EF
 {
+    /// <summary>
+    /// EF interface of interaction with database
+    /// Model first
+    /// Changed EF to EF core
+    /// </summary>
     public class RequestContext:DbContext
     {
         public RequestContext()
@@ -22,7 +20,7 @@ namespace CheckSitemap.DAL.EF
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CheckSitemapAppDb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CheckSitemapAppDb;Trusted_Connection=True;"); // Should be on root folder - fix it
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

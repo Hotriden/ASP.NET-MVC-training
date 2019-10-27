@@ -1,13 +1,12 @@
-﻿using CheckSitemap.BLL.DTO;
-using CheckSitemap.DAL.Entities;
-using System;
+﻿using CheckSitemap.DAL.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CheckSitemap.BLL.BusinessModels
 {
+    /// <summary>
+    /// Simple counter of spent time
+    /// of all request on list of requests
+    /// </summary>
     public class TimeCounter
     {
         public double time;
